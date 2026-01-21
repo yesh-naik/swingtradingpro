@@ -1,0 +1,569 @@
+/* SwingTradingPro Dashboard Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2563eb;
+    --success: #10b981;
+    --danger: #ef4444;
+    --warning: #f59e0b;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow-lg);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.last-updated {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Portfolio Summary */
+.portfolio-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.summary-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.summary-card.highlight {
+    border: 2px solid var(--primary);
+}
+
+.card-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.card-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.card-value.pnl.positive {
+    color: var(--success);
+}
+
+.card-value.pnl.negative {
+    color: var(--danger);
+}
+
+.card-subtext {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.card-subtext.positive {
+    color: var(--success);
+}
+
+.card-subtext.negative {
+    color: var(--danger);
+}
+
+/* Sections */
+section {
+    margin-bottom: 40px;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+/* Positions Grid */
+.positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.position-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.position-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.position-stock h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.position-name {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.position-pnl {
+    text-align: right;
+}
+
+.pnl-amount {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.pnl-percent {
+    font-size: 0.9rem;
+}
+
+.position-pnl.positive .pnl-amount,
+.position-pnl.positive .pnl-percent {
+    color: var(--success);
+}
+
+.position-pnl.negative .pnl-amount,
+.position-pnl.negative .pnl-percent {
+    color: var(--danger);
+}
+
+/* Position Details */
+.position-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.detail-label {
+    color: var(--text-secondary);
+}
+
+.detail-value {
+    font-weight: 600;
+}
+
+/* Position Targets */
+.position-targets {
+    margin-bottom: 16px;
+}
+
+.target-item {
+    margin-bottom: 12px;
+}
+
+.target-item:last-child {
+    margin-bottom: 0;
+}
+
+.target-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.target-value {
+    font-weight: 600;
+}
+
+.target-progress {
+    margin-top: 4px;
+}
+
+.progress-bar {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 4px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.3s ease;
+}
+
+.progress-bar.sl .progress-fill {
+    background: var(--danger);
+}
+
+.progress-bar.t1 .progress-fill {
+    background: var(--warning);
+}
+
+.progress-bar.t2 .progress-fill {
+    background: var(--success);
+}
+
+.target-distance {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* Position Meta */
+.position-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.meta-badge {
+    padding: 4px 10px;
+    background: var(--background);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.meta-badge.conviction-high {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.meta-badge.conviction-medium {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.meta-badge.conviction-low {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+.meta-badge.score {
+    background: var(--primary);
+    color: white;
+}
+
+/* Position Footer */
+.position-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    padding-top: 12px;
+    border-top: 1px solid var(--border);
+}
+
+.gtt-status {
+    font-weight: 600;
+}
+
+.gtt-status.active {
+    color: var(--success);
+}
+
+.gtt-status.inactive {
+    color: var(--danger);
+}
+
+.days-held {
+    color: var(--text-secondary);
+}
+
+/* No Positions */
+.no-positions {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* Metrics Grid */
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.metric-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.metric-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.metric-value {
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.metric-value.positive {
+    color: var(--success);
+}
+
+.metric-value.negative {
+    color: var(--danger);
+}
+
+/* Strategy Grid */
+.strategy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.strategy-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.strategy-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 16px;
+    color: var(--text-primary);
+}
+
+.strategy-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.stat {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+
+.stat-label {
+    color: var(--text-secondary);
+}
+
+.stat-value {
+    font-weight: 600;
+}
+
+/* Risk Grid */
+.risk-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.risk-card {
+    background: var(--surface);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.risk-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.risk-value {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.risk-bar {
+    height: 8px;
+    background: var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.risk-bar-fill {
+    height: 100%;
+    transition: width 0.3s ease;
+}
+
+.risk-bar-fill.safe {
+    background: var(--success);
+}
+
+.risk-bar-fill.warning {
+    background: var(--warning);
+}
+
+.risk-bar-fill.danger {
+    background: var(--danger);
+}
+
+.risk-status {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.risk-status.all_clear,
+.risk-status.green {
+    background: #dcfce7;
+    color: #16a34a;
+}
+
+.risk-status.warning,
+.risk-status.yellow {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.risk-status.danger,
+.risk-status.red {
+    background: #fee2e2;
+    color: #dc2626;
+}
+
+/* Footer */
+.footer {
+    margin-top: 60px;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border);
+}
+
+.footer p {
+    margin: 4px 0;
+}
+
+/* Error Message */
+.error-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: var(--surface);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.error-message h2 {
+    color: var(--danger);
+    margin-bottom: 16px;
+}
+
+.error-message button {
+    margin-top: 20px;
+    padding: 12px 24px;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.error-message button:hover {
+    background: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .positions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .card-value {
+        font-size: 1.5rem;
+    }
+}

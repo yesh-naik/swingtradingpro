@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SwingTradingPro - Live Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>💹 SwingTradingPro</h1>
+                <div class="last-updated" id="lastUpdated">Loading...</div>
+            </div>
+        </header>
+
+        <!-- Portfolio Summary -->
+        <section class="portfolio-summary">
+            <div class="summary-card">
+                <div class="card-label">Total Capital</div>
+                <div class="card-value" id="totalCapital">₹0</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-label">Deployed</div>
+                <div class="card-value" id="deployedCapital">₹0</div>
+                <div class="card-subtext" id="deployedPercent">0%</div>
+            </div>
+            <div class="summary-card highlight">
+                <div class="card-label">Total P&L</div>
+                <div class="card-value pnl" id="totalPnL">₹0</div>
+                <div class="card-subtext" id="totalPnLPercent">0%</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-label">Active Positions</div>
+                <div class="card-value" id="activePositions">0</div>
+                <div class="card-subtext" id="maxPositions">/ 0 max</div>
+            </div>
+            <div class="summary-card">
+                <div class="card-label">Cash Available</div>
+                <div class="card-value" id="cashAvailable">₹0</div>
+            </div>
+        </section>
+
+        <!-- Active Positions -->
+        <section class="positions-section">
+            <h2>📊 Active Positions</h2>
+            <div id="positionsContainer" class="positions-grid">
+                <!-- Positions will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section class="metrics-section">
+            <h2>📈 Performance Metrics</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Total Trades</div>
+                    <div class="metric-value" id="totalTrades">0</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Win Rate</div>
+                    <div class="metric-value" id="winRate">N/A</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Win</div>
+                    <div class="metric-value" id="avgWin">N/A</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Avg Loss</div>
+                    <div class="metric-value" id="avgLoss">N/A</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Strategy Performance -->
+        <section class="strategy-section">
+            <h2>🎯 Strategy Performance</h2>
+            <div id="strategyContainer" class="strategy-grid">
+                <!-- Strategies will be inserted here -->
+            </div>
+        </section>
+
+        <!-- Risk Status -->
+        <section class="risk-section">
+            <h2>⚠️ Risk Status</h2>
+            <div class="risk-grid">
+                <div class="risk-card">
+                    <div class="risk-label">Daily Loss Used</div>
+                    <div class="risk-value" id="dailyLoss">₹0 / ₹10,000</div>
+                    <div class="risk-bar">
+                        <div class="risk-bar-fill" id="dailyLossBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Current Drawdown</div>
+                    <div class="risk-value" id="drawdown">0% / 15% max</div>
+                    <div class="risk-bar">
+                        <div class="risk-bar-fill" id="drawdownBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="risk-card">
+                    <div class="risk-label">Risk Status</div>
+                    <div class="risk-status" id="riskStatus">ALL CLEAR</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>SwingTradingPro Dashboard • Auto-refreshes every 60 seconds</p>
+            <p>Data updates every 2-3 hours during market hours</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
