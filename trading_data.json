@@ -4,11 +4,11 @@
     "current_capital": 50000,
     "deployed_capital": 11854.7,
     "cash_available": 38145.3,
-    "total_pnl": 68.30000000000041,
-    "total_pnl_percent": 0.58,
+    "total_pnl": 136.5,
+    "total_pnl_percent": 1.15,
     "active_positions": 2,
     "max_positions": 5,
-    "last_updated": "2026-01-21T09:40:52+05:30"
+    "last_updated": "2026-01-21T12:49:31+05:30"
   },
   "active_positions": [
     {
@@ -20,18 +20,18 @@
       "entry_date": "2026-01-21",
       "entry_time": "13:30:34",
       "entry_price": 692.0,
-      "current_price": 695.5,
+      "current_price": 697.55,
       "shares": 10,
       "capital_invested": 6920.0,
-      "current_value": 6955.0,
-      "unrealized_pnl": 35.0,
-      "pnl_percent": 0.51,
+      "current_value": 6975.5,
+      "unrealized_pnl": 55.5,
+      "pnl_percent": 0.8,
       "stop_loss": 672.0,
       "stop_loss_percent": 2.89,
-      "distance_to_sl_percent": 3.38,
+      "distance_to_sl_percent": 3.66,
       "target_1": 711.0,
       "target_1_percent": 2.75,
-      "distance_to_t1_percent": 2.23,
+      "distance_to_t1_percent": 1.93,
       "target_2": 730.0,
       "target_2_percent": 5.49,
       "strategy": "Breakout Momentum",
@@ -52,7 +52,8 @@
         "macd_signal": "bullish_crossover",
         "breakout_type": "52_week_high"
       },
-      "notes": "Trade #001 - First systematic trade. Clean breakout setup."
+      "notes": "Trade #001 - First systematic trade. Clean breakout setup.",
+      "distance_to_t2_percent": 4.65
     },
     {
       "position_id": "POS002",
@@ -63,18 +64,18 @@
       "entry_date": "2026-01-21",
       "entry_time": "13:30:51",
       "entry_price": 548.3,
-      "current_price": 552.0,
+      "current_price": 557.3,
       "shares": 9,
       "capital_invested": 4934.7,
-      "current_value": 4968.0,
-      "unrealized_pnl": 33.30000000000041,
-      "pnl_percent": 0.67,
+      "current_value": 5015.7,
+      "unrealized_pnl": 81.0,
+      "pnl_percent": 1.64,
       "stop_loss": 535.0,
       "stop_loss_percent": 2.43,
-      "distance_to_sl_percent": 3.08,
+      "distance_to_sl_percent": 4.0,
       "target_1": 565.0,
       "target_1_percent": 3.05,
-      "distance_to_t1_percent": 2.36,
+      "distance_to_t1_percent": 1.38,
       "target_2": 580.0,
       "target_2_percent": 5.78,
       "strategy": "Breakout Momentum",
@@ -95,7 +96,8 @@
         "macd_signal": "positive",
         "breakout_type": "intraday"
       },
-      "notes": "Trade #002 - Riding metal sector momentum."
+      "notes": "Trade #002 - Riding metal sector momentum.",
+      "distance_to_t2_percent": 4.07
     }
   ],
   "closed_trades": [],
