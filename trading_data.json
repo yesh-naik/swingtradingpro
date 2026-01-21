@@ -46,11 +46,31 @@
       "status": "OPEN",
       "action_required": "Monitor - Normal consolidation",
       "entry_indicators": {
-        "rsi": 69.32,
-        "macd": 7.94,
-        "volume_ratio": 2.1,
+        "rsi_14": 69.32,
+        "macd_12_26_9": {
+          "macd": 7.94,
+          "signal": 2.59,
+          "histogram": 5.35
+        },
+        "ema_20": 648.28,
+        "volume_data": {
+          "entry_volume": 20800000,
+          "avg_volume": 9900000,
+          "volume_ratio": 2.1
+        },
+        "price_levels": {
+          "day_open": 682.0,
+          "day_high": 701.0,
+          "day_low": 680.75,
+          "previous_close": 680.75,
+          "52_week_high": 696.9,
+          "52_week_low": 378.15
+        },
+        "breakout_type": "52_week_high",
         "macd_signal": "bullish_crossover",
-        "breakout_type": "52_week_high"
+        "sector": "Metals",
+        "sector_rank": 1,
+        "sector_day_change": "+1.44%"
       },
       "notes": "Trade #001 - First systematic trade. Clean breakout setup.",
       "distance_to_t2_percent": 4.65
@@ -90,11 +110,23 @@
       "status": "OPEN",
       "action_required": "Monitor - Excellent stability",
       "entry_indicators": {
-        "rsi": 60.58,
-        "macd": null,
-        "volume_ratio": 26.3,
+        "rsi_14": 60.58,
+        "macd_12_26_9": {
+          "macd": null,
+          "signal": null,
+          "histogram": null
+        },
+        "volume_data": {
+          "entry_volume": 26300000,
+          "volume_ratio": 26.3
+        },
+        "price_levels": {
+          "day_change": "+3.18%"
+        },
+        "breakout_type": "intraday",
         "macd_signal": "positive",
-        "breakout_type": "intraday"
+        "sector": "Metals",
+        "sector_rank": 1
       },
       "notes": "Trade #002 - Riding metal sector momentum.",
       "distance_to_t2_percent": 4.07
@@ -119,11 +151,31 @@
       "score": "9/10",
       "entry_reasoning": "52-week high breakout. Volume 2.1x avg. Metal sector #1 gainer. MACD bullish crossover.",
       "entry_indicators": {
-        "rsi": 69.32,
-        "macd": 7.94,
-        "volume_ratio": 2.1,
+        "rsi_14": 69.32,
+        "macd_12_26_9": {
+          "macd": 7.94,
+          "signal": 2.59,
+          "histogram": 5.35
+        },
+        "ema_20": 648.28,
+        "volume_data": {
+          "entry_volume": 20800000,
+          "avg_volume": 9900000,
+          "volume_ratio": 2.1
+        },
+        "price_levels": {
+          "day_open": 682.0,
+          "day_high": 701.0,
+          "day_low": 680.75,
+          "previous_close": 680.75,
+          "52_week_high": 696.9,
+          "52_week_low": 378.15
+        },
+        "breakout_type": "52_week_high",
+        "macd_signal": "bullish_crossover",
         "sector": "Metals",
-        "sector_rank": 1
+        "sector_rank": 1,
+        "sector_day_change": "+1.44%"
       },
       "exits": [],
       "status": "OPEN",
@@ -149,8 +201,21 @@
       "score": "8/10",
       "entry_reasoning": "Intraday breakout. Same metal sector strength as HINDZINC. Volume 26.3M (strong).",
       "entry_indicators": {
-        "rsi": 60.58,
-        "volume_ratio": 26.3,
+        "rsi_14": 60.58,
+        "macd_12_26_9": {
+          "macd": null,
+          "signal": null,
+          "histogram": null
+        },
+        "volume_data": {
+          "entry_volume": 26300000,
+          "volume_ratio": 26.3
+        },
+        "price_levels": {
+          "day_change": "+3.18%"
+        },
+        "breakout_type": "intraday",
+        "macd_signal": "positive",
         "sector": "Metals",
         "sector_rank": 1
       },
