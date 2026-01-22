@@ -226,71 +226,75 @@ function updateClosedTrades() {
 function createClosedTradeCard(trade) {
     const outcomeClass = trade.realized_pnl >= 0 ? 'winner' : 'loser';
     const pnlSign = trade.realized_pnl >= 0 ? '+' : '';
+    const cardId = `trade-${trade.trade_id}`;
     
     return `
         <div class="closed-trade-card ${outcomeClass}">
-            <div class="closed-trade-header">
+            <div class="closed-trade-header" onclick="toggleTradeCard('${cardId}')">
                 <div class="closed-trade-info">
                     <h3>${trade.stock} - ${trade.stock_name}</h3>
                     <div class="closed-trade-dates">
-                        ${trade.entry_date} → ${trade.exit_date} (${trade.holding_days} day${trade.holding_days !== 1 ? 's' : ''})
+                        ${trade.entry_date} → ${trade.exit_date} (${trade.holding_days} day${trade.holding_days !== 1 ? 's' : ''}) • ${trade.exit_type.replace(/_/g, ' ')}
                     </div>
                 </div>
                 <div class="closed-trade-pnl">
                     <div class="closed-pnl-amount">${pnlSign}${formatCurrency(trade.realized_pnl)}</div>
                     <div class="closed-pnl-percent">${pnlSign}${trade.realized_pnl_percent.toFixed(2)}%</div>
                 </div>
+                <span class="card-toggle-icon" id="${cardId}-toggle">▼</span>
             </div>
             
-            <div class="closed-trade-details">
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Entry</span>
-                    <span class="closed-detail-value">₹${trade.entry_price.toFixed(2)}</span>
+            <div class="trade-card-details collapsed" id="${cardId}-details">
+                <div class="closed-trade-details">
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Entry</span>
+                        <span class="closed-detail-value">₹${trade.entry_price.toFixed(2)}</span>
+                    </div>
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Exit</span>
+                        <span class="closed-detail-value">₹${trade.exit_price.toFixed(2)}</span>
+                    </div>
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Quantity</span>
+                        <span class="closed-detail-value">${trade.quantity}</span>
+                    </div>
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Invested</span>
+                        <span class="closed-detail-value">${formatCurrency(trade.invested_capital)}</span>
+                    </div>
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Strategy</span>
+                        <span class="closed-detail-value">${trade.strategy}</span>
+                    </div>
+                    <div class="closed-detail-item">
+                        <span class="closed-detail-label">Sector</span>
+                        <span class="closed-detail-value">${trade.sector}</span>
+                    </div>
                 </div>
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Exit</span>
-                    <span class="closed-detail-value">₹${trade.exit_price.toFixed(2)}</span>
-                </div>
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Quantity</span>
-                    <span class="closed-detail-value">${trade.quantity}</span>
-                </div>
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Exit Type</span>
-                    <span class="closed-detail-value">${trade.exit_type.replace('_', ' ')}</span>
-                </div>
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Strategy</span>
-                    <span class="closed-detail-value">${trade.strategy}</span>
-                </div>
-                <div class="closed-detail-item">
-                    <span class="closed-detail-label">Sector</span>
-                    <span class="closed-detail-value">${trade.sector}</span>
-                </div>
+                
+                ${trade.analysis ? `
+                    <div class="trade-analysis">
+                        <div class="analysis-section worked">
+                            <h4>What Worked ✓</h4>
+                            <ul class="analysis-list">
+                                ${trade.analysis.what_worked.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="analysis-section didnt-work">
+                            <h4>What Didn't Work ✗</h4>
+                            <ul class="analysis-list">
+                                ${trade.analysis.what_didnt.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="analysis-section learnings">
+                            <h4>Key Learnings 📚</h4>
+                            <ul class="analysis-list">
+                                ${trade.analysis.key_learnings.map(item => `<li>${item}</li>`).join('')}
+                            </ul>
+                        </div>
+                    </div>
+                ` : ''}
             </div>
-            
-            ${trade.analysis ? `
-                <div class="trade-analysis">
-                    <div class="analysis-section worked">
-                        <h4>What Worked ✓</h4>
-                        <ul class="analysis-list">
-                            ${trade.analysis.what_worked.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="analysis-section didnt-work">
-                        <h4>What Didn't Work ✗</h4>
-                        <ul class="analysis-list">
-                            ${trade.analysis.what_didnt.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                    <div class="analysis-section learnings">
-                        <h4>Key Learnings 📚</h4>
-                        <ul class="analysis-list">
-                            ${trade.analysis.key_learnings.map(item => `<li>${item}</li>`).join('')}
-                        </ul>
-                    </div>
-                </div>
-            ` : ''}
         </div>
     `;
 }
@@ -443,6 +447,15 @@ function toggleSection(sectionId) {
     const toggle = document.getElementById(sectionId + 'Toggle');
     
     container.classList.toggle('collapsed');
+    toggle.classList.toggle('collapsed');
+}
+
+// Toggle individual trade card
+function toggleTradeCard(cardId) {
+    const details = document.getElementById(cardId + '-details');
+    const toggle = document.getElementById(cardId + '-toggle');
+    
+    details.classList.toggle('collapsed');
     toggle.classList.toggle('collapsed');
 }
 

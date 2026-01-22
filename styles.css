@@ -585,9 +585,43 @@ section h2 {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+}
+
+.closed-trade-header:hover {
+    opacity: 0.9;
+}
+
+.closed-trade-summary {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.trade-toggle-icon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+    color: var(--text-secondary);
+    margin-left: 10px;
+}
+
+.trade-toggle-icon.collapsed {
+    transform: rotate(-90deg);
+}
+
+.trade-card-details {
+    max-height: 1500px;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, margin-top 0.3s ease;
+    opacity: 1;
+    margin-top: 15px;
+}
+
+.trade-card-details.collapsed {
+    max-height: 0;
+    opacity: 0;
+    margin-top: 0;
 }
 
 .closed-trade-info h3 {
@@ -627,7 +661,6 @@ section h2 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 12px;
-    margin-bottom: 15px;
 }
 
 .closed-detail-item {
