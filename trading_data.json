@@ -1,16 +1,17 @@
 {
   "portfolio": {
     "pilot_capital": 50000,
-    "current_capital": 50000,
-    "deployed_capital": 11854.7,
-    "cash_available": 38145.3,
-    "total_pnl": 136.5,
-    "total_pnl_percent": 1.15,
-    "active_positions": 2,
+    "current_capital": 49680.3,
+    "deployed_capital": 0,
+    "cash_available": 49680.3,
+    "total_pnl": -319.7,
+    "total_pnl_percent": -0.64,
+    "active_positions": 0,
     "max_positions": 5,
-    "last_updated": "2026-01-21T12:49:31+05:30"
+    "last_updated": "2026-01-22T07:57:48+05:30"
   },
-  "active_positions": [
+  "active_positions": [],
+  "closed_trades": [
     {
       "position_id": "POS001",
       "stock": "HINDZINC",
@@ -20,31 +21,28 @@
       "entry_date": "2026-01-21",
       "entry_time": "13:30:34",
       "entry_price": 692.0,
-      "current_price": 697.55,
+      "exit_date": "2026-01-22",
+      "exit_time": "09:52:29",
+      "exit_price": 672.0,
       "shares": 10,
       "capital_invested": 6920.0,
-      "current_value": 6975.5,
-      "unrealized_pnl": 55.5,
-      "pnl_percent": 0.8,
+      "exit_proceeds": 6720.0,
+      "realized_pnl": -200.0,
+      "pnl_percent": -2.89,
+      "holding_days": 1,
       "stop_loss": 672.0,
-      "stop_loss_percent": 2.89,
-      "distance_to_sl_percent": 3.66,
       "target_1": 711.0,
-      "target_1_percent": 2.75,
-      "distance_to_t1_percent": 1.93,
       "target_2": 730.0,
-      "target_2_percent": 5.49,
       "strategy": "Breakout Momentum",
       "conviction": "High",
       "score": "9/10",
       "sector": "Metals",
-      "sector_rank": 1,
-      "days_held": 0,
+      "exit_type": "STOP_LOSS",
+      "exit_reason": "GTT stop loss triggered - metal sector reversal",
+      "trade_outcome": "Loser",
       "gtt_active": true,
       "gtt_trigger": 672.0,
       "gtt_limit": 670.0,
-      "status": "OPEN",
-      "action_required": "Monitor - Normal consolidation",
       "entry_indicators": {
         "rsi_14": 69.32,
         "macd_12_26_9": {
@@ -72,8 +70,36 @@
         "sector_rank": 1,
         "sector_day_change": "+1.44%"
       },
-      "notes": "Trade #001 - First systematic trade. Clean breakout setup.",
-      "distance_to_t2_percent": 4.65
+      "exit_indicators": {
+        "exit_price": 672.0,
+        "day_change_at_exit": "-2.74%",
+        "sector_status": "Metal sector sharp reversal",
+        "exit_method": "GTT automatic"
+      },
+      "analysis": {
+        "what_worked": [
+          "GTT stop loss worked perfectly",
+          "Loss limited exactly as planned",
+          "Automatic exit, no manual intervention needed"
+        ],
+        "what_didnt": [
+          "Entry timing - bought near day highs",
+          "No pullback waited for",
+          "RSI overbought (69.32) ignored",
+          "52-week high breakout was false signal",
+          "Stop loss too tight (2.89%) for metal volatility",
+          "Metal sector reversed sharply overnight"
+        ],
+        "key_learnings": [
+          "Don't chase stocks after big moves - wait for pullback",
+          "RSI >65 = avoid entry, wait for dip to 45-55",
+          "Metal stocks need 4-5% SL minimum, not 2-3%",
+          "Confirm breakout strength next day before entry",
+          "Massive volume spike can be exhaustion signal",
+          "Don't put full capital in one sector"
+        ]
+      },
+      "notes": "First systematic trade. Good: GTT worked. Bad: Poor entry timing."
     },
     {
       "position_id": "POS002",
@@ -84,38 +110,30 @@
       "entry_date": "2026-01-21",
       "entry_time": "13:30:51",
       "entry_price": 548.3,
-      "current_price": 557.3,
+      "exit_date": "2026-01-22",
+      "exit_time": "09:52:29",
+      "exit_price": 535.0,
       "shares": 9,
       "capital_invested": 4934.7,
-      "current_value": 5015.7,
-      "unrealized_pnl": 81.0,
-      "pnl_percent": 1.64,
+      "exit_proceeds": 4815.0,
+      "realized_pnl": -119.7,
+      "pnl_percent": -2.43,
+      "holding_days": 1,
       "stop_loss": 535.0,
-      "stop_loss_percent": 2.43,
-      "distance_to_sl_percent": 4.0,
       "target_1": 565.0,
-      "target_1_percent": 3.05,
-      "distance_to_t1_percent": 1.38,
       "target_2": 580.0,
-      "target_2_percent": 5.78,
       "strategy": "Breakout Momentum",
       "conviction": "Medium",
       "score": "8/10",
       "sector": "Metals",
-      "sector_rank": 1,
-      "days_held": 0,
+      "exit_type": "STOP_LOSS",
+      "exit_reason": "GTT stop loss triggered - metal sector reversal",
+      "trade_outcome": "Loser",
       "gtt_active": true,
       "gtt_trigger": 535.0,
       "gtt_limit": 533.0,
-      "status": "OPEN",
-      "action_required": "Monitor - Excellent stability",
       "entry_indicators": {
         "rsi_14": 60.58,
-        "macd_12_26_9": {
-          "macd": null,
-          "signal": null,
-          "histogram": null
-        },
         "volume_data": {
           "entry_volume": 26300000,
           "volume_ratio": 26.3
@@ -128,11 +146,32 @@
         "sector": "Metals",
         "sector_rank": 1
       },
-      "notes": "Trade #002 - Riding metal sector momentum.",
-      "distance_to_t2_percent": 4.07
+      "exit_indicators": {
+        "exit_price": 535.0,
+        "day_change_at_exit": "-4.79%",
+        "sector_status": "Metal sector sharp reversal",
+        "exit_method": "GTT automatic"
+      },
+      "analysis": {
+        "what_worked": [
+          "GTT stop loss worked perfectly",
+          "Loss limited exactly as planned"
+        ],
+        "what_didnt": [
+          "Entry after +3.18% move (chasing)",
+          "Volume spike 26.3x was exhaustion, not strength",
+          "No MACD data captured at entry",
+          "Stop loss too tight for volatility"
+        ],
+        "key_learnings": [
+          "Massive volume spike after big move = caution",
+          "Don't chase intraday breakouts without confirmation",
+          "Always capture complete technical data at entry"
+        ]
+      },
+      "notes": "Chased momentum. Volume spike was warning sign."
     }
   ],
-  "closed_trades": [],
   "trade_history": [
     {
       "trade_id": "TRADE001",
@@ -172,17 +211,25 @@
           "52_week_low": 378.15
         },
         "breakout_type": "52_week_high",
-        "macd_signal": "bullish_crossover",
         "sector": "Metals",
-        "sector_rank": 1,
-        "sector_day_change": "+1.44%"
+        "sector_rank": 1
       },
-      "exits": [],
-      "status": "OPEN",
-      "current_pnl": -37.5,
-      "current_pnl_percent": -0.54,
-      "holding_days": 0,
-      "notes": "First systematic trade"
+      "exits": [
+        {
+          "exit_date": "2026-01-22",
+          "exit_time": "09:52:29",
+          "exit_price": 672.0,
+          "shares_sold": 10,
+          "exit_type": "STOP_LOSS",
+          "realized_pnl": -200.0,
+          "pnl_percent": -2.89
+        }
+      ],
+      "status": "CLOSED",
+      "final_pnl": -200.0,
+      "final_pnl_percent": -2.89,
+      "holding_days": 1,
+      "notes": "SL triggered. Entry timing poor - bought at highs."
     },
     {
       "trade_id": "TRADE002",
@@ -202,11 +249,6 @@
       "entry_reasoning": "Intraday breakout. Same metal sector strength as HINDZINC. Volume 26.3M (strong).",
       "entry_indicators": {
         "rsi_14": 60.58,
-        "macd_12_26_9": {
-          "macd": null,
-          "signal": null,
-          "histogram": null
-        },
         "volume_data": {
           "entry_volume": 26300000,
           "volume_ratio": 26.3
@@ -215,46 +257,55 @@
           "day_change": "+3.18%"
         },
         "breakout_type": "intraday",
-        "macd_signal": "positive",
         "sector": "Metals",
         "sector_rank": 1
       },
-      "exits": [],
-      "status": "OPEN",
-      "current_pnl": -10.35,
-      "current_pnl_percent": -0.21,
-      "holding_days": 0,
-      "notes": "Riding metal sector momentum"
+      "exits": [
+        {
+          "exit_date": "2026-01-22",
+          "exit_time": "09:52:29",
+          "exit_price": 535.0,
+          "shares_sold": 9,
+          "exit_type": "STOP_LOSS",
+          "realized_pnl": -119.7,
+          "pnl_percent": -2.43
+        }
+      ],
+      "status": "CLOSED",
+      "final_pnl": -119.7,
+      "final_pnl_percent": -2.43,
+      "holding_days": 1,
+      "notes": "SL triggered. Chased momentum after big move."
     }
   ],
   "performance_metrics": {
     "total_trades": 2,
-    "open_trades": 2,
-    "closed_trades": 0,
+    "open_trades": 0,
+    "closed_trades": 2,
     "winning_trades": 0,
-    "losing_trades": 0,
-    "win_rate": null,
-    "total_realized_pnl": 0,
-    "total_unrealized_pnl": -47.85,
+    "losing_trades": 2,
+    "win_rate": 0.0,
+    "total_realized_pnl": -319.7,
+    "total_unrealized_pnl": 0,
     "average_win": null,
-    "average_loss": null,
+    "average_loss": -159.85,
     "risk_reward_ratio": null,
     "largest_win": null,
-    "largest_loss": null,
+    "largest_loss": -200.0,
     "best_strategy": null,
-    "worst_strategy": null,
-    "average_holding_days": 0
+    "worst_strategy": "Breakout Momentum",
+    "average_holding_days": 1.0
   },
   "strategy_performance": {
     "Breakout Momentum": {
       "total_trades": 2,
-      "open_trades": 2,
-      "closed_trades": 0,
+      "open_trades": 0,
+      "closed_trades": 2,
       "wins": 0,
-      "losses": 0,
-      "win_rate": null,
-      "total_pnl": -47.85,
-      "avg_pnl": -23.93
+      "losses": 2,
+      "win_rate": 0.0,
+      "total_pnl": -319.7,
+      "avg_pnl": -159.85
     },
     "Pullback Entry": {
       "total_trades": 0,
@@ -277,30 +328,29 @@
       "avg_pnl": null
     }
   },
-  "sector_exposure": {
-    "Metals": {
-      "positions": 2,
-      "capital_deployed": 11854.7,
-      "percent_of_portfolio": 100.0,
-      "total_pnl": -47.85
-    }
-  },
+  "sector_exposure": {},
   "risk_metrics": {
     "daily_loss_limit": 10000,
-    "daily_loss_used": 0,
+    "daily_loss_used": 319.7,
     "weekly_loss_limit": 25000,
-    "weekly_loss_used": 0,
+    "weekly_loss_used": 319.7,
     "max_drawdown_limit_percent": 15.0,
-    "current_drawdown_percent": 0.0,
-    "consecutive_losses": 0,
+    "current_drawdown_percent": 0.64,
+    "consecutive_losses": 2,
     "consecutive_wins": 0,
     "risk_status": "ALL_CLEAR",
-    "alerts": []
+    "alerts": [
+      "First 2 trades both stopped out - review strategy before next entry"
+    ]
   },
-  "alerts": [],
+  "alerts": [
+    "Both positions exited at stop loss",
+    "Learn from mistakes: Don't chase momentum, wait for pullback",
+    "RSI >65 at entry = danger zone"
+  ],
   "metadata": {
-    "last_updated": "2026-01-21T13:45:00+05:30",
-    "update_frequency": "Every 2-3 hours during market",
+    "last_updated": "2026-01-22T07:57:48+05:30",
+    "update_frequency": "Manual - updated after trades",
     "version": "1.0",
     "pilot_phase": true,
     "system_status": "OPERATIONAL"
