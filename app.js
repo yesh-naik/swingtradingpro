@@ -119,6 +119,48 @@ function createPositionCard(pos) {
                 </div>
             </div>
             
+            ${pos.entry_indicators ? `
+                <div class="entry-indicators-section">
+                    <h4>📊 Entry Indicators</h4>
+                    <div class="indicators-grid">
+                        ${pos.entry_indicators.rsi_14 ? `
+                            <div class="indicator-item">
+                                <span class="indicator-label">RSI (14)</span>
+                                <span class="indicator-value ${pos.entry_indicators.rsi_14 > 70 ? 'warning' : pos.entry_indicators.rsi_14 < 30 ? 'danger' : ''}">${pos.entry_indicators.rsi_14.toFixed(2)}</span>
+                            </div>
+                        ` : ''}
+                        ${pos.entry_indicators.macd && pos.entry_indicators.macd.value ? `
+                            <div class="indicator-item">
+                                <span class="indicator-label">MACD</span>
+                                <span class="indicator-value">${pos.entry_indicators.macd.value.toFixed(2)}</span>
+                            </div>
+                            <div class="indicator-item">
+                                <span class="indicator-label">MACD Trend</span>
+                                <span class="indicator-value ${pos.entry_indicators.macd.trend === 'bullish_crossover' ? 'success' : pos.entry_indicators.macd.trend === 'bearish_crossover' ? 'danger' : ''}">${pos.entry_indicators.macd.trend || 'N/A'}</span>
+                            </div>
+                        ` : ''}
+                        ${pos.entry_indicators.volume && pos.entry_indicators.volume.volume_ratio ? `
+                            <div class="indicator-item">
+                                <span class="indicator-label">Volume Ratio</span>
+                                <span class="indicator-value ${pos.entry_indicators.volume.volume_ratio > 2 ? 'success' : ''}">${pos.entry_indicators.volume.volume_ratio.toFixed(1)}x</span>
+                            </div>
+                        ` : ''}
+                        ${pos.entry_indicators.breakout_type ? `
+                            <div class="indicator-item">
+                                <span class="indicator-label">Breakout</span>
+                                <span class="indicator-value">${pos.entry_indicators.breakout_type.replace('_', ' ')}</span>
+                            </div>
+                        ` : ''}
+                        ${pos.entry_indicators.sector_rank ? `
+                            <div class="indicator-item">
+                                <span class="indicator-label">Sector Rank</span>
+                                <span class="indicator-value">#${pos.entry_indicators.sector_rank}</span>
+                            </div>
+                        ` : ''}
+                    </div>
+                </div>
+            ` : ''}
+            
             <div class="position-details">
                 <div class="detail-row">
                     <span class="detail-label">Entry:</span>
@@ -245,6 +287,58 @@ function createClosedTradeCard(trade) {
             </div>
             
             <div class="trade-card-details collapsed" id="${cardId}-details">
+                ${trade.entry_indicators ? `
+                    <div class="entry-indicators-section">
+                        <h4>📊 Entry Indicators</h4>
+                        <div class="indicators-grid">
+                            ${trade.entry_indicators.rsi_14 ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">RSI (14)</span>
+                                    <span class="indicator-value ${trade.entry_indicators.rsi_14 > 70 ? 'warning' : trade.entry_indicators.rsi_14 < 30 ? 'danger' : ''}">${trade.entry_indicators.rsi_14.toFixed(2)}</span>
+                                </div>
+                            ` : ''}
+                            ${trade.entry_indicators.macd ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">MACD</span>
+                                    <span class="indicator-value">${trade.entry_indicators.macd.value?.toFixed(2) || 'N/A'}</span>
+                                </div>
+                                <div class="indicator-item">
+                                    <span class="indicator-label">MACD Signal</span>
+                                    <span class="indicator-value">${trade.entry_indicators.macd.signal?.toFixed(2) || 'N/A'}</span>
+                                </div>
+                                <div class="indicator-item">
+                                    <span class="indicator-label">MACD Trend</span>
+                                    <span class="indicator-value ${trade.entry_indicators.macd.trend === 'bullish_crossover' ? 'success' : trade.entry_indicators.macd.trend === 'bearish_crossover' ? 'danger' : ''}">${trade.entry_indicators.macd.trend || 'N/A'}</span>
+                                </div>
+                            ` : ''}
+                            ${trade.entry_indicators.volume ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">Volume Ratio</span>
+                                    <span class="indicator-value ${trade.entry_indicators.volume.volume_ratio > 2 ? 'success' : ''}">${trade.entry_indicators.volume.volume_ratio?.toFixed(1) || 'N/A'}x</span>
+                                </div>
+                            ` : ''}
+                            ${trade.entry_indicators.breakout_type ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">Breakout Type</span>
+                                    <span class="indicator-value">${trade.entry_indicators.breakout_type.replace('_', ' ')}</span>
+                                </div>
+                            ` : ''}
+                            ${trade.entry_indicators.sector_rank ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">Sector Rank</span>
+                                    <span class="indicator-value">#${trade.entry_indicators.sector_rank}</span>
+                                </div>
+                            ` : ''}
+                            ${trade.entry_indicators.price_levels ? `
+                                <div class="indicator-item">
+                                    <span class="indicator-label">52W High</span>
+                                    <span class="indicator-value">₹${trade.entry_indicators.price_levels['52_week_high']?.toFixed(2) || 'N/A'}</span>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                ` : ''}
+                
                 <div class="closed-trade-details">
                     <div class="closed-detail-item">
                         <span class="closed-detail-label">Entry</span>

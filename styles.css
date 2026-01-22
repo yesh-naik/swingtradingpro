@@ -556,6 +556,59 @@ section h2 {
     opacity: 0;
 }
 
+/* Entry Indicators Section */
+.entry-indicators-section {
+    background: var(--background);
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+    border-left: 3px solid var(--primary);
+}
+
+.entry-indicators-section h4 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.indicators-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+}
+
+.indicator-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.indicator-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.indicator-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.indicator-value.success {
+    color: var(--success);
+}
+
+.indicator-value.warning {
+    color: var(--warning);
+}
+
+.indicator-value.danger {
+    color: var(--danger);
+}
+
 /* Closed Trades */
 .closed-trades-container {
     display: flex;
