@@ -48,7 +48,8 @@
           "Entered HINDCOPPER after +3.18% move, massive volume spike",
           "RSI was 69.32 (overbought) - ignored warning signal",
           "Did not wait for pullback or consolidation",
-          "Both positions hit stop loss within 24 hours"
+          "Both positions hit stop loss within 24 hours",
+          "HINDCOPPER: Volume 26.3x average - exhaustion signal ignored"
         ],
         "correct_approach": [
           "Wait for pullback after big moves (RSI 45-55 range)",
@@ -56,7 +57,9 @@
           "Don't chase 52-week high breakouts - wait for confirmation next day",
           "Massive volume spike = exhaustion, not strength",
           "Mid-day entries are risky - prefer 9:15-10:00 AM window",
-          "Use wider stop loss for volatile sectors (metals need 4-5%)"
+          "Use wider stop loss for volatile sectors (metals need 4-5%)",
+          "Volume spike >20x = wait for consolidation, don't enter",
+          "Healthy volume: 1.5x to 8x average, not 20x+"
         ],
         "checklist_before_entry": [
           "✓ RSI between 45-60 (not overbought)",
@@ -64,7 +67,8 @@
           "✓ Enter in morning (9:15-10:30 AM), avoid mid-day",
           "✓ Stop loss 4-5% for metals, 3-4% for others",
           "✓ Confirm sector strength, not just single stock",
-          "✓ Don't enter multiple positions in same sector"
+          "✓ Don't enter multiple positions in same sector",
+          "✓ Volume spike <10x (if >20x, it's exhaustion)"
         ],
         "red_flags_to_avoid": [
           "❌ RSI >65",
@@ -72,7 +76,8 @@
           "❌ At or near 52-week high",
           "❌ Volume spike >20x average (exhaustion)",
           "❌ Mid-day entry (after 11 AM)",
-          "❌ Sector already ran multiple days"
+          "❌ Sector already ran multiple days",
+          "❌ Volume spike >20x average (likely exhaustion, not strength)"
         ],
         "priority": "HIGH",
         "severity": "Critical - Led to 100% loss rate",
