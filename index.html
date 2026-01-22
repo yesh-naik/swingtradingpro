@@ -76,8 +76,11 @@
 
         <!-- Closed Trades -->
         <section class="closed-trades-section">
-            <h2>📁 Closed Trades</h2>
-            <div id="closedTradesContainer" class="closed-trades-container">
+            <div class="section-header-collapsible" onclick="toggleSection('closedTrades')">
+                <h2>📁 Closed Trades <span id="closedTradesCount" class="count-badge">0</span></h2>
+                <span class="toggle-icon" id="closedTradesToggle">▼</span>
+            </div>
+            <div id="closedTradesContainer" class="closed-trades-container collapsible-content">
                 <!-- Closed trades will be inserted here -->
             </div>
         </section>

@@ -193,12 +193,18 @@ function createPositionCard(pos) {
 // Update closed trades
 function updateClosedTrades() {
     const container = document.getElementById('closedTradesContainer');
+    const countBadge = document.getElementById('closedTradesCount');
     
     // Load closed_trades.json
     fetch('closed_trades.json?t=' + Date.now())
         .then(response => response.json())
         .then(closedData => {
             const trades = closedData.closed_trades || [];
+            
+            // Update count badge
+            if (countBadge) {
+                countBadge.textContent = trades.length;
+            }
             
             if (trades.length === 0) {
                 container.innerHTML = '<div class="no-positions">No closed trades yet</div>';
@@ -210,6 +216,9 @@ function updateClosedTrades() {
         .catch(error => {
             console.error('Error loading closed trades:', error);
             container.innerHTML = '<div class="no-positions">Error loading closed trades</div>';
+            if (countBadge) {
+                countBadge.textContent = '0';
+            }
         });
 }
 
@@ -426,6 +435,15 @@ function updateLastUpdated() {
             dateStyle: 'medium',
             timeStyle: 'short'
         });
+}
+
+// Toggle collapsible sections
+function toggleSection(sectionId) {
+    const container = document.getElementById(sectionId + 'Container');
+    const toggle = document.getElementById(sectionId + 'Toggle');
+    
+    container.classList.toggle('collapsed');
+    toggle.classList.toggle('collapsed');
 }
 
 // Format currency
