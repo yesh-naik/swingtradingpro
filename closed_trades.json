@@ -129,20 +129,20 @@
           "Automatic exit, no manual intervention needed"
         ],
         "what_didnt": [
-          "Entry timing - bought near day highs",
-          "No pullback waited for",
-          "RSI overbought (>65) ignored",
-          "52-week high breakout was false signal",
-          "Stop loss too tight for metal stock volatility",
-          "Metal sector reversed sharply overnight"
+          "Entry timing - bought after +3.18% intraday move (chasing)",
+          "Mid-day entry (1:30 PM) - should enter 9:15-10:30 AM only",
+          "Massive volume spike 26.3x was exhaustion, not strength",
+          "No pullback waited for despite big move",
+          "Stop loss too tight (2.43%) for metal stock volatility",
+          "Same sector as HINDZINC - doubled down on metals"
         ],
         "key_learnings": [
-          "Don't chase stocks after big moves - wait for pullback",
-          "RSI >65 = avoid entry, wait for dip to 45-55",
+          "Don't chase stocks already up >3% intraday",
+          "Volume spike >20x = exhaustion signal, not entry signal",
+          "Never enter after 11 AM - wait for next day",
+          "Avoid multiple positions in same sector",
           "Metal stocks need 4-5% SL minimum, not 2-3%",
-          "Confirm breakout strength next day before entry",
-          "Massive volume spike can be exhaustion, not strength",
-          "Don't put full capital in one sector"
+          "Wait for pullback even if RSI is acceptable (was 60.58)"
         ]
       },
       "notes": "First systematic trades. Good: GTT worked, losses controlled. Bad: Poor entry timing, chased momentum."
