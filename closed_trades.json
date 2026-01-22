@@ -1,0 +1,160 @@
+{
+  "last_updated": "2026-01-22T07:50:33+05:30",
+  "closed_trades": [
+    {
+      "trade_id": "TRADE_001",
+      "stock": "HINDZINC",
+      "stock_name": "Hindustan Zinc Ltd.",
+      "sector": "Metals",
+      "entry_date": "2026-01-21",
+      "entry_time": "13:30:34",
+      "entry_price": 692.0,
+      "exit_date": "2026-01-22",
+      "exit_time": "09:52:29",
+      "exit_price": 672.0,
+      "quantity": 10,
+      "holding_days": 1,
+      "invested_capital": 6920.0,
+      "exit_proceeds": 6720.0,
+      "realized_pnl": -200.0,
+      "realized_pnl_percent": -2.89,
+      "strategy": "Breakout Momentum",
+      "conviction": "High",
+      "score": 9,
+      "exit_type": "STOP_LOSS",
+      "exit_reason": "GTT stop loss triggered - metal sector reversal",
+      "trade_outcome": "Loser",
+      "entry_indicators": {
+        "rsi_14": 69.32,
+        "macd": {
+          "value": 7.94,
+          "signal": 2.59,
+          "histogram": 5.35,
+          "trend": "bullish_crossover"
+        },
+        "ema_20": 648.28,
+        "volume": {
+          "entry_volume": 20800000,
+          "avg_volume": 9900000,
+          "volume_ratio": 2.1
+        },
+        "price_levels": {
+          "day_open": 682.0,
+          "day_high": 701.0,
+          "day_low": 680.75,
+          "previous_close": 680.75,
+          "52_week_high": 696.9,
+          "52_week_low": 378.15
+        },
+        "breakout_type": "52_week_high",
+        "sector_rank": 1,
+        "sector_day_change": "+1.44%"
+      },
+      "exit_indicators": {
+        "exit_price": 672.0,
+        "day_change_at_exit": "-2.74%",
+        "sector_status": "Metal sector sharp reversal",
+        "note": "Exit at exact stop loss via GTT"
+      },
+      "analysis": {
+        "what_worked": [
+          "GTT stop loss worked perfectly",
+          "Loss limited exactly as planned",
+          "Automatic exit, no manual intervention needed"
+        ],
+        "what_didnt": [
+          "Entry timing - bought near day highs",
+          "No pullback waited for",
+          "RSI overbought (>65) ignored",
+          "52-week high breakout was false signal",
+          "Stop loss too tight for metal stock volatility",
+          "Metal sector reversed sharply overnight"
+        ],
+        "key_learnings": [
+          "Don't chase stocks after big moves - wait for pullback",
+          "RSI >65 = avoid entry, wait for dip to 45-55",
+          "Metal stocks need 4-5% SL minimum, not 2-3%",
+          "Confirm breakout strength next day before entry",
+          "Massive volume spike can be exhaustion, not strength",
+          "Don't put full capital in one sector"
+        ]
+      },
+      "notes": "First systematic trades. Good: GTT worked, losses controlled. Bad: Poor entry timing, chased momentum."
+    },
+    {
+      "trade_id": "TRADE_002",
+      "stock": "HINDCOPPER",
+      "stock_name": "Hindustan Copper Ltd.",
+      "sector": "Metals",
+      "entry_date": "2026-01-21",
+      "entry_time": "13:30:51",
+      "entry_price": 548.3,
+      "exit_date": "2026-01-22",
+      "exit_time": "09:52:29",
+      "exit_price": 535.0,
+      "quantity": 9,
+      "holding_days": 1,
+      "invested_capital": 4934.7,
+      "exit_proceeds": 4815.0,
+      "realized_pnl": -119.7,
+      "realized_pnl_percent": -2.43,
+      "strategy": "Breakout Momentum",
+      "conviction": "Medium",
+      "score": 8,
+      "exit_type": "STOP_LOSS",
+      "exit_reason": "GTT stop loss triggered - metal sector reversal",
+      "trade_outcome": "Loser",
+      "entry_indicators": {
+        "rsi_14": 60.58,
+        "volume": {
+          "entry_volume": 26300000,
+          "volume_ratio": 26.3
+        },
+        "price_levels": {
+          "day_change": "+3.18%"
+        },
+        "breakout_type": "intraday",
+        "sector_rank": 1
+      },
+      "exit_indicators": {
+        "exit_price": 535.0,
+        "day_change_at_exit": "-4.79%",
+        "sector_status": "Metal sector sharp reversal",
+        "note": "Exit at exact stop loss via GTT"
+      },
+      "analysis": {
+        "what_worked": [
+          "GTT stop loss worked perfectly",
+          "Loss limited exactly as planned",
+          "Automatic exit, no manual intervention needed"
+        ],
+        "what_didnt": [
+          "Entry timing - bought near day highs",
+          "No pullback waited for",
+          "RSI overbought (>65) ignored",
+          "52-week high breakout was false signal",
+          "Stop loss too tight for metal stock volatility",
+          "Metal sector reversed sharply overnight"
+        ],
+        "key_learnings": [
+          "Don't chase stocks after big moves - wait for pullback",
+          "RSI >65 = avoid entry, wait for dip to 45-55",
+          "Metal stocks need 4-5% SL minimum, not 2-3%",
+          "Confirm breakout strength next day before entry",
+          "Massive volume spike can be exhaustion, not strength",
+          "Don't put full capital in one sector"
+        ]
+      },
+      "notes": "First systematic trades. Good: GTT worked, losses controlled. Bad: Poor entry timing, chased momentum."
+    }
+  ],
+  "summary": {
+    "total_trades": 2,
+    "winning_trades": 0,
+    "losing_trades": 2,
+    "win_rate": 0.0,
+    "total_realized_pnl": -319.7,
+    "average_return": -159.85,
+    "average_holding_days": 1.0
+  }
+}
