@@ -8,9 +8,23 @@
 - [ ] RSI NOT >65 (overbought - hard reject)
 - [ ] RSI NOT <30 (oversold - wait for bounce)
 
-### 2. Price Movement Check  
-- [ ] Stock NOT up >2% intraday (if yes = chasing, reject)
-- [ ] Stock NOT up >3% in last 2 days (momentum exhausted)
+### 2. Price Movement Check (3-TIER SYSTEM)
+🟢 **GREEN (<2% intraday):**
+- [ ] Safe to enter - proceed with other checks
+
+🟡 **YELLOW (2-4% intraday):**
+- [ ] Evaluate carefully - ALL must pass:
+  - RSI <60 (not getting overbought)
+  - Volume <8x (not exhaustion)
+  - Time <10:00 AM (early enough)
+  - Strong sector momentum (not fading)
+  - If ANY concern → WAIT for pullback
+
+🔴 **RED (>4% intraday):**
+- [ ] Too late - REJECT, wait for pullback tomorrow
+
+**Additional checks:**
+- [ ] NOT up >5% in last 2 days combined
 - [ ] NOT at/near 52-week high without consolidation
 
 ### 3. Volume Check
@@ -43,7 +57,8 @@
 ## RED FLAGS (ANY one = REJECT)
 
 ❌ RSI >65
-❌ Stock up >3% today
+❌ Stock up >4% today (auto-reject, too late)
+❌ Stock 2-4% today BUT fails evaluation (RSI >60 OR volume >8x OR time >10 AM)
 ❌ Volume >20x average
 ❌ Time after 11 AM
 ❌ At 52W high without pullback
@@ -71,15 +86,21 @@ When suggesting a stock, I'll provide:
 STOCK: XYZ
 Sector: ABC
 Current Price: ₹XXX
+Day Change: +2.8%
 
 ✅ CHECKLIST VALIDATION:
-  ✓ RSI: 52.3 (ideal range)
-  ✓ Intraday: +0.8% (not chasing)
-  ✓ Volume: 3.2x (healthy)
-  ✓ Time: 9:24 AM (perfect)
+  ✓ RSI: 56 (ideal range)
+  🟡 Intraday: +2.8% (YELLOW zone - evaluating)
+     ✓ RSI <60 (safe)
+     ✓ Volume 4.2x (healthy, not exhaustion)
+     ✓ Time 9:42 AM (early enough)
+     ✓ Sector showing fresh strength
+     → APPROVED for entry despite +2.8%
+  ✓ Volume: 4.2x (healthy)
+  ✓ Time: 9:42 AM (perfect window)
   ✓ MACD: Bullish crossover
   ✓ Sector: Fresh strength today
-  ✓ No existing metal position
+  ✓ No existing ABC sector position
 
 🎯 ENTRY PLAN:
   Entry: ₹XXX

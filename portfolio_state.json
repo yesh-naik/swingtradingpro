@@ -59,11 +59,12 @@
           "Mid-day entries are risky - prefer 9:15-10:00 AM window",
           "Use wider stop loss for volatile sectors (metals need 4-5%)",
           "Volume spike >20x = wait for consolidation, don't enter",
-          "Healthy volume: 1.5x to 8x average, not 20x+"
+          "Healthy volume: 1.5x to 8x average, not 20x+",
+          "3-tier price movement rule: <2% green, 2-4% yellow (evaluate), >4% red (reject)"
         ],
         "checklist_before_entry": [
           "✓ RSI between 45-60 (not overbought)",
-          "✓ Wait for pullback if stock up >2% intraday",
+          "✓ Price movement: <2% safe, 2-4% evaluate carefully, >4% reject",
           "✓ Enter in morning (9:15-10:30 AM), avoid mid-day",
           "✓ Stop loss 4-5% for metals, 3-4% for others",
           "✓ Confirm sector strength, not just single stock",
@@ -72,7 +73,7 @@
         ],
         "red_flags_to_avoid": [
           "❌ RSI >65",
-          "❌ Stock up >3% on entry day",
+          "❌ Stock up >4% intraday (too late to enter)",
           "❌ At or near 52-week high",
           "❌ Volume spike >20x average (exhaustion)",
           "❌ Mid-day entry (after 11 AM)",
