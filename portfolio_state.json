@@ -1,0 +1,83 @@
+{
+  "last_updated": "2026-01-22T07:50:33+05:30",
+  "capital": {
+    "initial_capital": 50000,
+    "additional_deposits": 0,
+    "total_capital_invested": 50000,
+    "current_deployed": 0,
+    "cash_available": 49680.3,
+    "total_realized_pnl": -319.7,
+    "total_unrealized_pnl": 0,
+    "net_portfolio_value": 49680.3,
+    "total_return_percent": 0.27
+  },
+  "capital_history": [
+    {
+      "date": "2026-01-21",
+      "type": "INITIAL",
+      "amount": 50000,
+      "note": "Pilot capital for swing trading system"
+    },
+    {
+      "date": "2026-01-22",
+      "type": "REALIZED_LOSS",
+      "amount": -319.7,
+      "note": "HINDZINC & HINDCOPPER stop loss exits"
+    }
+  ],
+  "lessons_learned": {
+    "last_updated": "2026-01-22T08:01:51+05:30",
+    "total_lessons": 1,
+    "mistakes_to_avoid": [
+      {
+        "lesson_id": "LESSON_001",
+        "date_learned": "2026-01-22",
+        "trade_ids": [
+          "TRADE_001",
+          "TRADE_002"
+        ],
+        "stocks_affected": [
+          "HINDZINC",
+          "HINDCOPPER"
+        ],
+        "loss_amount": -319.7,
+        "mistake_category": "Entry Timing",
+        "mistake_description": "Chased momentum - bought near day highs after big moves",
+        "what_went_wrong": [
+          "Entered HINDZINC at ₹692 when it was at 52-week high (₹696.90)",
+          "Entered HINDCOPPER after +3.18% move, massive volume spike",
+          "RSI was 69.32 (overbought) - ignored warning signal",
+          "Did not wait for pullback or consolidation",
+          "Both positions hit stop loss within 24 hours"
+        ],
+        "correct_approach": [
+          "Wait for pullback after big moves (RSI 45-55 range)",
+          "Never enter when RSI >65",
+          "Don't chase 52-week high breakouts - wait for confirmation next day",
+          "Massive volume spike = exhaustion, not strength",
+          "Mid-day entries are risky - prefer 9:15-10:00 AM window",
+          "Use wider stop loss for volatile sectors (metals need 4-5%)"
+        ],
+        "checklist_before_entry": [
+          "✓ RSI between 45-60 (not overbought)",
+          "✓ Wait for pullback if stock up >2% intraday",
+          "✓ Enter in morning (9:15-10:30 AM), avoid mid-day",
+          "✓ Stop loss 4-5% for metals, 3-4% for others",
+          "✓ Confirm sector strength, not just single stock",
+          "✓ Don't enter multiple positions in same sector"
+        ],
+        "red_flags_to_avoid": [
+          "❌ RSI >65",
+          "❌ Stock up >3% on entry day",
+          "❌ At or near 52-week high",
+          "❌ Volume spike >20x average (exhaustion)",
+          "❌ Mid-day entry (after 11 AM)",
+          "❌ Sector already ran multiple days"
+        ],
+        "priority": "HIGH",
+        "severity": "Critical - Led to 100% loss rate",
+        "status": "Active - Must check before every entry"
+      }
+    ]
+  }
+}

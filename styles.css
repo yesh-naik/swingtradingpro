@@ -504,6 +504,232 @@ section h2 {
     color: #dc2626;
 }
 
+/* Closed Trades */
+.closed-trades-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.closed-trade-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--border);
+}
+
+.closed-trade-card.winner {
+    border-left-color: var(--success);
+    background: linear-gradient(to right, #dcfce7 0%, var(--surface) 10%);
+}
+
+.closed-trade-card.loser {
+    border-left-color: var(--danger);
+    background: linear-gradient(to right, #fee2e2 0%, var(--surface) 10%);
+}
+
+.closed-trade-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border);
+}
+
+.closed-trade-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.closed-trade-dates {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.closed-trade-pnl {
+    text-align: right;
+}
+
+.closed-pnl-amount {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.closed-pnl-percent {
+    font-size: 0.95rem;
+}
+
+.closed-trade-card.winner .closed-pnl-amount,
+.closed-trade-card.winner .closed-pnl-percent {
+    color: var(--success);
+}
+
+.closed-trade-card.loser .closed-pnl-amount,
+.closed-trade-card.loser .closed-pnl-percent {
+    color: var(--danger);
+}
+
+.closed-trade-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.closed-detail-item {
+    font-size: 0.9rem;
+}
+
+.closed-detail-label {
+    color: var(--text-secondary);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.closed-detail-value {
+    font-weight: 600;
+}
+
+.trade-analysis {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border);
+}
+
+.analysis-section {
+    margin-bottom: 12px;
+}
+
+.analysis-section h4 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.analysis-list {
+    list-style: none;
+    padding: 0;
+}
+
+.analysis-list li {
+    font-size: 0.85rem;
+    padding: 4px 0;
+    padding-left: 20px;
+    position: relative;
+}
+
+.analysis-list li:before {
+    content: "•";
+    position: absolute;
+    left: 8px;
+}
+
+.analysis-section.worked li:before {
+    color: var(--success);
+}
+
+.analysis-section.didnt-work li:before {
+    color: var(--danger);
+}
+
+.analysis-section.learnings li:before {
+    color: var(--primary);
+}
+
+/* Lessons Learned */
+.lessons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lesson-card {
+    background: var(--surface);
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--warning);
+}
+
+.lesson-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border);
+}
+
+.lesson-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--danger);
+}
+
+.lesson-loss {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--danger);
+}
+
+.lesson-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.lesson-section {
+    background: var(--background);
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.lesson-section h4 {
+    font-size: 1rem;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.lesson-section.checklist {
+    border-left: 4px solid var(--success);
+}
+
+.lesson-section.redflags {
+    border-left: 4px solid var(--danger);
+}
+
+.lesson-list {
+    list-style: none;
+    padding: 0;
+}
+
+.lesson-list li {
+    font-size: 0.9rem;
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.4;
+}
+
+.lesson-section.checklist li:before {
+    content: "✓";
+    position: absolute;
+    left: 8px;
+    color: var(--success);
+    font-weight: 700;
+}
+
+.lesson-section.redflags li:before {
+    content: "✗";
+    position: absolute;
+    left: 8px;
+    color: var(--danger);
+    font-weight: 700;
+}
+
 /* Footer */
 .footer {
     margin-top: 60px;

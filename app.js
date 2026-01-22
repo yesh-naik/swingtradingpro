@@ -41,9 +41,11 @@ function updateDashboard() {
     
     updatePortfolioSummary();
     updatePositions();
+    updateClosedTrades();
     updatePerformanceMetrics();
     updateStrategyPerformance();
     updateRiskMetrics();
+    updateLessonsLearned();
     updateLastUpdated();
 }
 
@@ -183,6 +185,158 @@ function createPositionCard(pos) {
                     ${gttActive ? '✅' : '❌'} GTT ${gttActive ? 'Active' : 'Inactive'}
                 </span>
                 <span class="days-held">Day ${daysHeld}</span>
+            </div>
+        </div>
+    `;
+}
+
+// Update closed trades
+function updateClosedTrades() {
+    const container = document.getElementById('closedTradesContainer');
+    
+    // Load closed_trades.json
+    fetch('closed_trades.json?t=' + Date.now())
+        .then(response => response.json())
+        .then(closedData => {
+            const trades = closedData.closed_trades || [];
+            
+            if (trades.length === 0) {
+                container.innerHTML = '<div class="no-positions">No closed trades yet</div>';
+                return;
+            }
+            
+            container.innerHTML = trades.map(trade => createClosedTradeCard(trade)).join('');
+        })
+        .catch(error => {
+            console.error('Error loading closed trades:', error);
+            container.innerHTML = '<div class="no-positions">Error loading closed trades</div>';
+        });
+}
+
+// Create closed trade card
+function createClosedTradeCard(trade) {
+    const outcomeClass = trade.realized_pnl >= 0 ? 'winner' : 'loser';
+    const pnlSign = trade.realized_pnl >= 0 ? '+' : '';
+    
+    return `
+        <div class="closed-trade-card ${outcomeClass}">
+            <div class="closed-trade-header">
+                <div class="closed-trade-info">
+                    <h3>${trade.stock} - ${trade.stock_name}</h3>
+                    <div class="closed-trade-dates">
+                        ${trade.entry_date} → ${trade.exit_date} (${trade.holding_days} day${trade.holding_days !== 1 ? 's' : ''})
+                    </div>
+                </div>
+                <div class="closed-trade-pnl">
+                    <div class="closed-pnl-amount">${pnlSign}${formatCurrency(trade.realized_pnl)}</div>
+                    <div class="closed-pnl-percent">${pnlSign}${trade.realized_pnl_percent.toFixed(2)}%</div>
+                </div>
+            </div>
+            
+            <div class="closed-trade-details">
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Entry</span>
+                    <span class="closed-detail-value">₹${trade.entry_price.toFixed(2)}</span>
+                </div>
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Exit</span>
+                    <span class="closed-detail-value">₹${trade.exit_price.toFixed(2)}</span>
+                </div>
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Quantity</span>
+                    <span class="closed-detail-value">${trade.quantity}</span>
+                </div>
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Exit Type</span>
+                    <span class="closed-detail-value">${trade.exit_type.replace('_', ' ')}</span>
+                </div>
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Strategy</span>
+                    <span class="closed-detail-value">${trade.strategy}</span>
+                </div>
+                <div class="closed-detail-item">
+                    <span class="closed-detail-label">Sector</span>
+                    <span class="closed-detail-value">${trade.sector}</span>
+                </div>
+            </div>
+            
+            ${trade.analysis ? `
+                <div class="trade-analysis">
+                    <div class="analysis-section worked">
+                        <h4>What Worked ✓</h4>
+                        <ul class="analysis-list">
+                            ${trade.analysis.what_worked.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="analysis-section didnt-work">
+                        <h4>What Didn't Work ✗</h4>
+                        <ul class="analysis-list">
+                            ${trade.analysis.what_didnt.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div class="analysis-section learnings">
+                        <h4>Key Learnings 📚</h4>
+                        <ul class="analysis-list">
+                            ${trade.analysis.key_learnings.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+            ` : ''}
+        </div>
+    `;
+}
+
+// Update lessons learned
+function updateLessonsLearned() {
+    const container = document.getElementById('lessonsContainer');
+    
+    // Load portfolio_state.json for lessons
+    fetch('portfolio_state.json?t=' + Date.now())
+        .then(response => response.json())
+        .then(portfolioData => {
+            const lessons = portfolioData.lessons_learned?.mistakes_to_avoid || [];
+            
+            if (lessons.length === 0) {
+                container.innerHTML = '<div class="no-positions">No lessons captured yet</div>';
+                return;
+            }
+            
+            container.innerHTML = lessons.map(lesson => createLessonCard(lesson)).join('');
+        })
+        .catch(error => {
+            console.error('Error loading lessons:', error);
+            container.innerHTML = '<div class="no-positions">Error loading lessons</div>';
+        });
+}
+
+// Create lesson card
+function createLessonCard(lesson) {
+    return `
+        <div class="lesson-card">
+            <div class="lesson-header">
+                <div>
+                    <div class="lesson-title">⚠️ ${lesson.mistake_description}</div>
+                    <div style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 8px;">
+                        ${lesson.date_learned} • ${lesson.mistake_category} • ${lesson.severity}
+                    </div>
+                </div>
+                <div class="lesson-loss">${formatCurrency(lesson.loss_amount)}</div>
+            </div>
+            
+            <div class="lesson-content">
+                <div class="lesson-section checklist">
+                    <h4>✅ Checklist Before Entry</h4>
+                    <ul class="lesson-list">
+                        ${lesson.checklist_before_entry.map(item => `<li>${item.replace('✓ ', '')}</li>`).join('')}
+                    </ul>
+                </div>
+                
+                <div class="lesson-section redflags">
+                    <h4>🚫 Red Flags to Avoid</h4>
+                    <ul class="lesson-list">
+                        ${lesson.red_flags_to_avoid.map(item => `<li>${item.replace('❌ ', '')}</li>`).join('')}
+                    </ul>
+                </div>
             </div>
         </div>
     `;
